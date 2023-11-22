@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="jsonOrders" targetNamespace="http://Vaibhavi/FashionSiteServicesPractice.v1.apis:jsonOrders" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Vaibhavi/FashionSiteServicesPractice.v1.apis:jsonOrders" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Vaibhavi/FashionSiteServicesPractice.v1.apis:jsonOrders" xmlns:tns="http://Vaibhavi/FashionSiteServicesPractice.v1.apis:jsonOrders" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="saveOrders" type="tns:saveOrders"/>
+          <xsd:element name="saveOrdersResponse" type="tns:saveOrdersResponse"/>
+          <xsd:element name="getAllOrders" type="tns:getAllOrders"/>
+          <xsd:element name="getAllOrdersResponse" type="tns:getAllOrdersResponse"/>
+          <xsd:element name="getOrderById" type="tns:getOrderById"/>
+          <xsd:element name="getOrderByIdResponse" type="tns:getOrderByIdResponse"/>
+          <xsd:element name="deleteOrderById" type="tns:deleteOrderById"/>
+          <xsd:element name="deleteOrderByIdResponse" type="tns:deleteOrderByIdResponse"/>
+          <xsd:complexType name="saveOrders">
+            <xsd:sequence>
+              <xsd:element name="orders" nillable="true" type="tns:orderCDM"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="orderCDM">
+            <xsd:sequence>
+              <xsd:element name="currency" nillable="true" type="xsd:string"/>
+              <xsd:element name="subtotal" nillable="true" type="xsd:double"/>
+              <xsd:element name="discountAmount" nillable="true" type="xsd:double"/>
+              <xsd:element name="taxAmount" nillable="true" type="xsd:double"/>
+              <xsd:element name="grandTotal" nillable="true" type="xsd:double"/>
+              <xsd:element name="orderId" nillable="true" type="xsd:string"/>
+              <xsd:element name="emailAddress" nillable="true" type="xsd:string"/>
+              <xsd:element name="shippingAmount" nillable="true" type="xsd:double"/>
+              <xsd:element name="shippingDate" nillable="true" type="xsd:string"/>
+              <xsd:element name="shippingDetails" nillable="true" type="xsd:string"/>
+              <xsd:element name="shippingTrackingUrl" nillable="true" type="xsd:string"/>
+              <xsd:element name="shippingAddress" nillable="true" type="xsd:string"/>
+              <xsd:element maxOccurs="unbounded" name="lineItems" nillable="true" type="tns:lineItems"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="lineItems">
+            <xsd:sequence>
+              <xsd:element name="sku" nillable="true" type="xsd:string"/>
+              <xsd:element name="name" nillable="true" type="xsd:string"/>
+              <xsd:element name="description" nillable="true" type="xsd:string"/>
+              <xsd:element name="category" nillable="true" type="xsd:string"/>
+              <xsd:element name="other" nillable="true" type="xsd:string"/>
+              <xsd:element name="unitPrice" nillable="true" type="xsd:double"/>
+              <xsd:element name="salePrice" nillable="true" type="xsd:double"/>
+              <xsd:element name="quantity" nillable="true" type="xsd:long"/>
+              <xsd:element name="totalPrice" nillable="true" type="xsd:double"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="saveOrdersResponse">
+            <xsd:sequence>
+              <xsd:element name="status" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getAllOrders">
+            <xsd:sequence>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getAllOrdersResponse">
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="Orders" nillable="true" type="tns:orderCDM"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getOrderById">
+            <xsd:sequence>
+              <xsd:element name="id" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="getOrderByIdResponse">
+            <xsd:sequence>
+              <xsd:element name="order" nillable="true" type="tns:orderCDM"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="deleteOrderById">
+            <xsd:sequence>
+              <xsd:element name="id" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="deleteOrderByIdResponse">
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="OrderList1" nillable="true" type="tns:orderCDM"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="jsonOrders_PortType_getOrderById">
+    <wsdl:part name="parameters" element="tns:getOrderById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_saveOrdersResponse">
+    <wsdl:part name="parameters" element="tns:saveOrdersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_deleteOrderByIdResponse">
+    <wsdl:part name="parameters" element="tns:deleteOrderByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_getOrderByIdResponse">
+    <wsdl:part name="parameters" element="tns:getOrderByIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_deleteOrderById">
+    <wsdl:part name="parameters" element="tns:deleteOrderById">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_saveOrders">
+    <wsdl:part name="parameters" element="tns:saveOrders">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_getAllOrdersResponse">
+    <wsdl:part name="parameters" element="tns:getAllOrdersResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="jsonOrders_PortType_getAllOrders">
+    <wsdl:part name="parameters" element="tns:getAllOrders">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="jsonOrders_PortType">
+    <wsdl:operation name="getAllOrders">
+      <wsdl:input message="tns:jsonOrders_PortType_getAllOrders">
+    </wsdl:input>
+      <wsdl:output message="tns:jsonOrders_PortType_getAllOrdersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveOrders">
+      <wsdl:input message="tns:jsonOrders_PortType_saveOrders">
+    </wsdl:input>
+      <wsdl:output message="tns:jsonOrders_PortType_saveOrdersResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderById">
+      <wsdl:input message="tns:jsonOrders_PortType_getOrderById">
+    </wsdl:input>
+      <wsdl:output message="tns:jsonOrders_PortType_getOrderByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrderById">
+      <wsdl:input message="tns:jsonOrders_PortType_deleteOrderById">
+    </wsdl:input>
+      <wsdl:output message="tns:jsonOrders_PortType_deleteOrderByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FashionSiteServicesPractice_v1_apis_jsonOrders_Binder" type="tns:jsonOrders_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getAllOrders">
+      <soap:operation soapAction="FashionSiteServicesPractice_v1_apis_jsonOrders_Binder_getAllOrders" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saveOrders">
+      <soap:operation soapAction="FashionSiteServicesPractice_v1_apis_jsonOrders_Binder_saveOrders" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderById">
+      <soap:operation soapAction="FashionSiteServicesPractice_v1_apis_jsonOrders_Binder_getOrderById" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrderById">
+      <soap:operation soapAction="FashionSiteServicesPractice_v1_apis_jsonOrders_Binder_deleteOrderById" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FashionSiteServicesPractice.v1.apis.jsonOrders">
+    <wsdl:port name="FashionSiteServicesPractice_v1_apis_jsonOrders_Port" binding="tns:FashionSiteServicesPractice_v1_apis_jsonOrders_Binder">
+      <soap:address location="http://Vaibhavi:5555/ws/FashionSiteServicesPractice.v1.apis:jsonOrders/FashionSiteServicesPractice_v1_apis_jsonOrders_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

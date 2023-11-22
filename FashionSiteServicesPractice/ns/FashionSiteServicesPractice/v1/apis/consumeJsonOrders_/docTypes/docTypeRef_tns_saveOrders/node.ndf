@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Values version="2.0">
+  <record name="record" javaclass="com.wm.util.Values">
+    <value name="node_type">record</value>
+    <value name="node_subtype">unknown</value>
+    <value name="node_nsName">FashionSiteServicesPractice.v1.apis.consumeJsonOrders_.docTypes:docTypeRef_tns_saveOrders</value>
+    <value name="node_pkg">FashionSiteServicesPractice</value>
+    <value name="is_public">false</value>
+    <value name="field_type">record</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+    <value name="form_qualified">false</value>
+    <value name="is_global">false</value>
+    <value name="schemaDomain">323c27e882f740d491dcd3485742cc99</value>
+    <value name="docTypeDomain">cea343c1d17d4c129b09fc757a8746bb</value>
+    <value name="originURI">http://Vaibhavi:5555/ws/FashionSiteServicesPractice.v1.apis:jsonOrders?WSDL</value>
+    <array name="rec_fields" type="record" depth="1">
+      <record javaclass="com.wm.util.Values">
+        <value name="node_type">record</value>
+        <value name="node_subtype">unknown</value>
+        <value name="is_public">false</value>
+        <value name="field_name">orders</value>
+        <value name="field_type">recref</value>
+        <value name="field_dim">0</value>
+        <value name="nillable">true</value>
+        <value name="form_qualified">false</value>
+        <value name="is_global">false</value>
+        <value name="rec_closed">true</value>
+        <value name="modifiable">true</value>
+        <value name="rec_ref">FashionSiteServicesPractice.v1.apis.consumeJsonOrders_.docTypes:docTypeRef_tns_orderCDM</value>
+      </record>
+    </array>
+    <record name="schemaType" javaclass="com.wm.util.Values">
+      <value name="xmlns">http://Vaibhavi/FashionSiteServicesPractice.v1.apis:jsonOrders</value>
+      <value name="ncName">saveOrders</value>
+    </record>
+    <value name="schemaRegistered">true</value>
+    <value name="modifiable">false</value>
+    <value name="parentWsd">FashionSiteServicesPractice.v1.apis:consumeJsonOrders</value>
+  </record>
+</Values>
